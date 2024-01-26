@@ -23,7 +23,8 @@ a response.
 
 For this assignment (and every assignment/lab), you must login into the 
 servers through `your_khoury_name@login.khoury.northeastern.edu` to complete 
-and test your work. The reason is the examples I will provide below are 
+and test your work. The reason i
+s the examples I will provide below are 
 compiled strictly for our machine's architecture, and this is a consistent 
 architecture where your submission will be graded.
 
@@ -36,5 +37,4 @@ architecture where your submission will be graded.
   can test your code.
   * Points will be lost if you forget!
 * Do not forget, once you have pushed your changes to your repo, make sure 
-  that you **submit them to GitHub before the assignment deadline!*
-*
+  that you **submit them to GitHub before the assignment deadline!
