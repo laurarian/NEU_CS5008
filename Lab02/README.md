@@ -5,19 +5,19 @@ information by removing the "*edit me*" and replace it with appropriate
 information your assignment. If it is asking you a question, please provide 
 a response.
 
-- Name: *edit me*
+- Name: Rong Huang
 - Title: Lab02 
-- How many hours did it take you to complete this assignment? *edit me*
+- How many hours did it take you to complete this assignment? 2 hour
 - Did you collaborate with any other students/TAs/Professors? If so, tell 
   us who and in what capacity.
-  - *edit me (add more rows if needed)*
+  - Now I completed it by myself.But I watched the moduel3 videos and some YouTube videos to get the knowledge.
 - Did you use any external resources? (Cite them below)
-  - *edit me*
-  - *edit me and add more rows if needed*
+  - CS linkedlist 2019 01 17 12 21 50:https://www.youtube.com/watch?v=SB9si64asSk&list=PLvv0ScY6vfd8qupx0owF78ZcbvySvbWfx&index=9
+  - Introduction to Linked List:https://www.youtube.com/watch?v=R9PTBwOzceo
 - (Optional) What was your favorite part of the assignment? 
-  - *edit me*
+  - I found the most engaging part to be observing how pointers link individual nodes into a linked list and access their data. Writing this in C, as opposed to a high-level language like Python, allowed me to gain a deeper understanding of the underlying mechanics of computers and memory management.
 - (Optional) How would you improve the assignment? 
-  - *edit me*
+  - I suggest enhancing the node and list creation process by utilizing loops, which could improve the efficiency of creating the linked list. This approach not only makes the code more maintainable and scalable but also adapts well to changes in the data structure or volume.
 
 ## Logistics
 
