@@ -1,3 +1,16 @@
+// =================== Support Code =================
+// Doubly Linked List ( DLL ).
+//
+//
+//
+// - Implement each of the functions to create a working DLL.
+// - Do not change any of the function declarations
+//   - (i.e. dll_t* create_dll() should not have additional arguments)
+// - You should not have any 'printf' statements in your DLL functions. 
+//   - (You may consider using these printf statements to debug,
+//     but they should be removed from your final version)
+//   - (You may write helper functions to help you debug your code such as print_list etc)
+// ==================================================
 #ifndef MYDLL_H
 #define MYDLL_H
 
@@ -228,7 +241,7 @@ int dll_insert(dll_t* t, int pos, int item){
         current->next = newNode;
     }
 
-    
+
     // Increment the count of nodes in the list
     t->count++;
     return 1; 
