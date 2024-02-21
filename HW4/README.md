@@ -5,16 +5,17 @@ information by removing the "*edit me*" and replace it with appropriate
 information your assignment. If it is asking you a question, please provide 
 a response.
 
-- Name: *edit me*
-- Description: *edit me*
-- How many hours did it take you to complete this assignment? 
+- Name: Rong Huang
+- Description: HW 4: Analysis
+- How many hours did it take you to complete this assignment? 4 hours 
 - Did you collaborate with any other students/TAs/Professors? If so, tell 
   us who and in what capacity.
-  - *edit me (add more rows if needed)*
+  - No,I completed it by myself but I did a lot research about the sorting algoritms.
 - Did you use any external resources? (Cite them below)
-  - *edit me*
-  - *edit me and add more rows if needed*
-- Shareable link to experiment data: *edit me*
+  - Analysis of Algorithms | Big-O analysis:https://www.geeksforgeeks.org/analysis-algorithms-big-o-analysis/
+  - Time and Space Complexity Analysis of Binary Search Algorithm:https://www.geeksforgeeks.org/complexity-analysis-of-binary-search/?ref=header_search
+  - Time Complexity:https://dev.to/bks1242/time-complexity-5c3
+- Shareable link to experiment data: https://docs.google.com/spreadsheets/d/1cz004SJKAjzBedoiltwHCWnsLjdoFliP6rQAWJUiglc/edit?usp=sharing
 - (Optional) What was your favorite part of the assignment? 
   - *edit me*
 - (Optional) How would you improve the assignment? 
