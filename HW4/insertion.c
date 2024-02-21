@@ -47,7 +47,7 @@ void sortIntegers(int* array, unsigned int size){
         // Iterate over the sorted section of the array (from i-1 to 0) and find the correct position for the key.
         // Shift elements to the right to make space for the key if they are greater than the key.
         for (j = i - 1; j >= 0 && array[j] > key;j--) {
-            array[j + 1] = array[j]; // Shift element to the right
+            array[j + 1] = array[j]; // Shift element to the right.I don't use the swap function here since this is more efficient.
         }
 
         // Insert the key at its correct position in the sorted section of the array.
