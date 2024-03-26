@@ -1,0 +1,10 @@
+eat sleep
+eat exercise
+sleep dream
+sleep wakeup
+wakeup work
+wakeup meditation
+work rest
+work dinner
+rest exercise
+rest lunch
