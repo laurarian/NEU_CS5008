@@ -41,75 +41,6 @@ graph_t* create_graph(){
     return myGraph;
 }
 
-// =================== Visited Nodes List ===================
-typedef struct {
-    dll_t* visitedNodes;  // DLL to store visited nodes
-} visited_list_t;
-
-// Initialize the visited nodes list
-visited_list_t* create_visited_list() {
-    visited_list_t* visitedList = (visited_list_t*)malloc(sizeof(visited_list_t));
-    if (visitedList == NULL) {
-        return NULL;  // Memory allocation failed
-    }
-
-    visitedList->visitedNodes = create_dll();
-    if (visitedList->visitedNodes == NULL) {
-        free(visitedList);
-        return NULL;  // Memory allocation failed
-    }
-
-    return visitedList;
-}
-
-// Add a node to the visited list
-void add_visited_node(visited_list_t* visitedList, graph_node_t* node) {
-    if (visitedList == NULL || visitedList->visitedNodes == NULL || node == NULL) {
-        return;
-    }
-
-    // Check if the node is already in the visited list
-    node_t* current = visitedList->visitedNodes->head;
-    while (current != NULL) {
-        if (current->data == node) {
-            return;  // Node already visited
-        }
-        current = current->next;
-    }
-
-    // Add the node to the visited list
-    dll_push_back(visitedList->visitedNodes, node);
-}
-
-// Check if a node has been visited
-int is_node_visited(visited_list_t* visitedList, graph_node_t* node) {
-    if (visitedList == NULL || visitedList->visitedNodes == NULL || node == NULL) {
-        return 0;  // Visited list not initialized
-    }
-
-    // Check if the node is in the visited list
-    node_t* current = visitedList->visitedNodes->head;
-    while (current != NULL) {
-        if (current->data == node) {
-            return 1;  // Node is visited
-        }
-        current = current->next;
-    }
-
-    return 0;  // Node is not visited
-}
-
-// Free the visited list and its contents
-void free_visited_list(visited_list_t* visitedList) {
-    if (visitedList == NULL) {
-        return;
-    }
-
-    // Assuming dll_free() is a function to free the DLL and its nodes' data
-    free_dll(visitedList->visitedNodes);
-    free(visitedList);
-}
-
 // ======================================
 // Returns the node pointer if the node exists.
 // Returns NULL if the node doesn't exist or the graph is NULL
@@ -363,7 +294,7 @@ void free_graph(graph_t* g){
         node_t *next = current->next;
 
         graph_node_t *node = (graph_node_t *)current->data;
-        free_dll(node->inNeighbors);  // Assuming free_dll properly frees the DLL and its contents
+        free_dll(node->inNeighbors);  
         free_dll(node->outNeighbors);
         free(node);  // Free the graph node itself
 
@@ -375,6 +306,114 @@ void free_graph(graph_t* g){
 
     // Finally, free the graph structure itself
     free(g);
+}
+
+
+// =================== Visited Nodes List ===================
+typedef struct {
+    dll_t* visitedNodes;  // DLL to store visited nodes
+} visited_list_t;
+
+// Initialize the visited nodes list
+visited_list_t* create_visited_list() {
+    visited_list_t* visitedList = (visited_list_t*)malloc(sizeof(visited_list_t));
+    if (visitedList == NULL) {
+        return NULL;  // Memory allocation failed
+    }
+
+    visitedList->visitedNodes = create_dll();
+    if (visitedList->visitedNodes == NULL) {
+        free(visitedList);
+        return NULL;  // Memory allocation failed
+    }
+
+    return visitedList;
+}
+
+// Add a node to the visited list
+void add_visited_node(visited_list_t* visitedList, graph_node_t* node) {
+    if (visitedList == NULL || visitedList->visitedNodes == NULL || node == NULL) {
+        return;
+    }
+
+    // Check if the node is already in the visited list
+    node_t* current = visitedList->visitedNodes->head;
+    while (current != NULL) {
+        if (current->data == node) {
+            return;  // Node already visited
+        }
+        current = current->next;
+    }
+
+    // Add the node to the visited list
+    dll_push_back(visitedList->visitedNodes, node);
+}
+
+// Check if a node has been visited
+int is_node_visited(visited_list_t* visitedList, graph_node_t* node) {
+    if (visitedList == NULL || visitedList->visitedNodes == NULL || node == NULL) {
+        return 0;  // Visited list not initialized
+    }
+
+    // Check if the node is in the visited list
+    node_t* current = visitedList->visitedNodes->head;
+    while (current != NULL) {
+        if (current->data == node) {
+            return 1;  // Node is visited
+        }
+        current = current->next;
+    }
+
+    return 0;  // Node is not visited
+}
+
+// Free the visited list and its contents
+void free_visited_list(visited_list_t* visitedList) {
+    if (visitedList == NULL) {
+        return;
+    }
+
+    // Assuming dll_free() is a function to free the DLL and its nodes' data
+    free_dll(visitedList->visitedNodes);
+    free(visitedList);
+}
+
+// DFS Function
+void dfs(graph_t* g, graph_node_t* node, visited_list_t* visitedList) {
+    if (node == NULL || is_node_visited(visitedList, node)) {
+        return;  // Skip null or visited nodes
+    }
+
+    // Mark the current node as visited
+    add_visited_node(visitedList, node);
+    printf("Visited node: %d\n", node->data);  // Process the node (e.g., print its data)
+
+    // Recur for all the vertices adjacent to this vertex
+    node_t* current = node->outNeighbors->head;
+    while (current != NULL) {
+        graph_node_t* nextNode = (graph_node_t*)current->data;
+        dfs(g, nextNode, visitedList);
+        current = current->next;
+    }
+}
+
+// Function to start DFS traversal
+void start_dfs(graph_t* g, int startValue) {
+    if (g == NULL) return;
+
+    visited_list_t* visitedList = create_visited_list();
+    if (visitedList == NULL) return;
+
+    graph_node_t* startNode = find_node(g, startValue);
+    if (startNode == NULL) {
+        free_visited_list(visitedList);
+        return;
+    }
+
+    dfs(g, startNode, visitedList);
+
+    // Clean up
+    free_visited_list(visitedList);
 }
 
 #endif
