@@ -148,7 +148,7 @@ graph_node_t * create_graph_node(int value){
 int graph_add_node(graph_t* g, int value){
     if ( g == NULL ) return -1;
     
-    if (find_node(g, value) != NULL) return -1;
+    if (find_node(g, value) != NULL) return 0;
     
     graph_node_t * newNode = create_graph_node(value);
     if ( newNode == NULL ) return -1;
@@ -214,7 +214,7 @@ int graph_add_edge(graph_t * g, int source, int destination){
     graph_node_t* srcNode = find_node(g, source);
     graph_node_t* destNode = find_node(g, destination);
 
-    if (srcNode == NULL || destNode == NULL) return -1;
+    if (srcNode == NULL || destNode == NULL) return 0;
 
     // Check if the edge already exists
     if (dll_contains(srcNode->outNeighbors, destNode)) {
@@ -285,9 +285,9 @@ int contains_edge( graph_t * g, int source, int destintaion){
     graph_node_t* srcNode = find_node(g, source);
     graph_node_t* destNode = find_node(g, destintaion);
 
-    if (srcNode == NULL || destNode == NULL) return -1;
+    if (srcNode == NULL || destNode == NULL) return 0;
 
-    return dll_contains(srcNode->outNeighbors, destNode);
+    return dll_contains(srcNode->outNeighbors, destNode) ? 1 : 0;
 
 }
 
@@ -359,17 +359,21 @@ void free_graph(graph_t* g){
     node_t *current = g->nodes->head;
     while (current != NULL)
     {
+        // Save the next node before freeing the current node
+        node_t *next = current->next;
+
         graph_node_t *node = (graph_node_t *)current->data;
-        free_dll(node->inNeighbors);
+        free_dll(node->inNeighbors);  // Assuming free_dll properly frees the DLL and its contents
         free_dll(node->outNeighbors);
-        free(node);
-        current = current->next;
+        free(node);  // Free the graph node itself
+
+        current = next;  // Move to the next node
     }
 
-    // Free the list of nodes
+    // Free the list of nodes in the graph
     free_dll(g->nodes);
 
-    // Free the graph itself
+    // Finally, free the graph structure itself
     free(g);
 }
 

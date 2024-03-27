@@ -350,7 +350,6 @@ void dll_remove_node(dll_t* t, void* ptr) {
 }
 
 
-
 // Helper function to check if a doubly linked list (DLL) contains a specific node.
 // It is used in a graph to check if there is an edge 
 // between two nodes. The edge existence is determined by checking if the destination
@@ -375,7 +374,6 @@ int dll_contains(dll_t* t, void* data) {
     }
     return 0; // Data not found in the list, return 0
 }
-
 
 // DLL Size
 // Exits if the DLL is NULL.
