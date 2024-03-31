@@ -294,8 +294,12 @@ void free_graph(graph_t* g){
         node_t *next = current->next;
 
         graph_node_t *node = (graph_node_t *)current->data;
-        free_dll(node->inNeighbors);  
+        free_dll(node->inNeighbors);
+        node->inNeighbors = NULL;
+
         free_dll(node->outNeighbors);
+        node->outNeighbors = NULL;
+
         free(node);  // Free the graph node itself
 
         current = next;  // Move to the next node
@@ -303,6 +307,7 @@ void free_graph(graph_t* g){
 
     // Free the list of nodes in the graph
     free_dll(g->nodes);
+    g->nodes = NULL;
 
     // Finally, free the graph structure itself
     free(g);

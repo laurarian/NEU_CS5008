@@ -404,7 +404,9 @@ void free_dll(dll_t* t) {
         free(current);  // Free current node
         current = next;  // Move to next node
     }
-
+    t->head = NULL;
+    t->tail = NULL;
+    
     // After freeing all nodes, free the list structure itself
     free(t);
 }
