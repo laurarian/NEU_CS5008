@@ -294,8 +294,12 @@ void free_graph(graph_t* g){
         node_t *next = current->next;
 
         graph_node_t *node = (graph_node_t *)current->data;
-        free_dll(node->inNeighbors);  
+        free_dll(node->inNeighbors);
+        node->inNeighbors = NULL;
+
         free_dll(node->outNeighbors);
+	node->outNeighbors = NULL;
+
         free(node);  // Free the graph node itself
 
         current = next;  // Move to the next node
@@ -376,44 +380,6 @@ void free_visited_list(visited_list_t* visitedList) {
     // Assuming dll_free() is a function to free the DLL and its nodes' data
     free_dll(visitedList->visitedNodes);
     free(visitedList);
-}
-
-// DFS Function
-void dfs(graph_t* g, graph_node_t* node, visited_list_t* visitedList) {
-    if (node == NULL || is_node_visited(visitedList, node)) {
-        return;  // Skip null or visited nodes
-    }
-
-    // Mark the current node as visited
-    add_visited_node(visitedList, node);
-    printf("Visited node: %d\n", node->data);  // Process the node (e.g., print its data)
-
-    // Recur for all the vertices adjacent to this vertex
-    node_t* current = node->outNeighbors->head;
-    while (current != NULL) {
-        graph_node_t* nextNode = (graph_node_t*)current->data;
-        dfs(g, nextNode, visitedList);
-        current = current->next;
-    }
-}
-
-// Function to start DFS traversal
-void start_dfs(graph_t* g, int startValue) {
-    if (g == NULL) return;
-
-    visited_list_t* visitedList = create_visited_list();
-    if (visitedList == NULL) return;
-
-    graph_node_t* startNode = find_node(g, startValue);
-    if (startNode == NULL) {
-        free_visited_list(visitedList);
-        return;
-    }
-
-    dfs(g, startNode, visitedList);
-
-    // Clean up
-    free_visited_list(visitedList);
 }
 
 #endif
