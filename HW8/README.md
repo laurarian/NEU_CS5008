@@ -5,19 +5,18 @@ information by removing the "*edit me*" and replace it with appropriate
 information your assignment. If it is asking you a question, please provide 
 a response.
 
-- Name: *edit me with your name*
+- Name: Rong Huang
 
-- Description: *edit me with a description of the assignment*
+- Description: HW8
 
-- How many hours did it take you to complete this assignment? *edit me*
+- How many hours did it take you to complete this assignment? 8 Hours
 
 - Did you collaborate with any other students/TAs/Professors? If so, tell 
   us who and in what capacity.
-  - *edit me (add more rows if needed)*
+  - Ziyue shen
 
 - Did you use any external resources? (Cite them below)
-  - *edit me*
-  - *edit me and add more rows if needed*
+  - Dijkstra's Algorithm and code in C-Language: https://www.youtube.com/watch?v=2_gc_83Nu2E
 
 - (Optional) What was your favorite part of the assignment? 
   - *edit me*
