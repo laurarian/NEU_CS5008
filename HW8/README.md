@@ -13,10 +13,12 @@ a response.
 
 - Did you collaborate with any other students/TAs/Professors? If so, tell 
   us who and in what capacity.
+  - Prof.Scott
   - Ziyue shen
 
 - Did you use any external resources? (Cite them below)
-  - Dijkstra's Algorithm and code in C-Language: https://www.youtube.com/watch?v=2_gc_83Nu2E
+  - Dijkstra's Algorithm in C-Language: https://www.youtube.com/watch?v=2_gc_83Nu2E
+  - How to find Shortest Paths from Source to all Vertices using Dijkstra?: https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
 
 - (Optional) What was your favorite part of the assignment? 
   - *edit me*

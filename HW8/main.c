@@ -1,4 +1,4 @@
-#include <ctype.h>0
+#include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -106,7 +106,6 @@ int main() {
 	
 	//Build an adjacency matrix based on the city.dat datafile
 	int matrix[19][19] = {0};
-	int j,l;
 	
     while (fscanf(cit, "%s %s %d", city1, city2, &distance) != EOF) {
         int m,n = -1;
@@ -117,6 +116,7 @@ int main() {
 		}
 		if(m != -1 && n != -1){
 			graph_add_edge(map,m,n,distance);
+            graph_add_edge(map,n,m,distance);
 			matrix[m][n] = distance;
 			matrix[n][m] = distance;
 
